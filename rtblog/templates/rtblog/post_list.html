@@ -32,34 +32,17 @@
         <div class="flex-container">
 
           <div class="post">
-            <div class="user">
-              Krabs
-            </div>
-            <div class="thought">
-              Hallo wereld!
-            </div>
-          </div>
-
-          <div class="post">
-            <div class="user">
-              Spongebob
-            </div>
-            <div class="thought">
-              Dit is echt super cool.
-           </div>
-          </div>
-
-          <div class="post">
-            <div class="user">
-              Patrick
-            </div>
-            <div class="thought">
-              He determined to drop his litigation with the monastry, and relinguish his claims to the wood-cuting and fishery rihgts at once. He was the more ready to do this becuase the rights had becom much less valuable, and he had indeed the vaguest idea where the wood and river in quedtion were.
-            </div>
+            {% for post in posts %}
+              <div>
+                  <p>published: {{ post.published_date }}</p>
+                  <h1><a href="">{{ post.title }}</a></h1>
+                  <p>{{ post.text|linebreaksbr }}</p>
+              </div>
+            {% endfor %}
           </div>
 
         </div>
-      </div>
+      </div> 
     </div>
 
     <div class="bottom-part">
