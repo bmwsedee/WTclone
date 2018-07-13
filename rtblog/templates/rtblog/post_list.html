@@ -1,61 +1,13 @@
-<!DOCTYPE html>
+{% extends 'blog/base.html' %}
 
-{% load staticfiles %}
-<html>
-
-<head>
- <title>Web Tech Project Resit</title>
-
- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
- <link rel="stylesheet" href="{% static 'css/rtblog.css' %}">
-
-</head>
-
-<body>
-
- <div class="background">
-
-   <div class="top-part">
-      <h1><a href="/"> Random Thoughts Blog </a> </h1>
-      <h2> Share your random thoughts with the world! </h2>
-
-      <div class="inputs">
-        <h3>
-          <textarea class="userarea" placeholder="Enter your name"></textarea>
-          <br>
-          <textarea class="thoughtarea" placeholder="Enter your thought"></textarea>
-          <br>
-          <button class="submit"> Submit </button>
-        </h3>
-      </div>
-
-    </div>
-
-    <div class="middle-part">
-      <div class="flex-width">
-        <div class="flex-container">
-
-          <div class="post">
-            {% for post in posts %}
-              <div>
-                  <p>published: {{ post.published_date }}</p>
-                  <h1><a href="">{{ post.title }}</a></h1>
-                  <p>{{ post.text|linebreaksbr }}</p>
-              </div>
-            {% endfor %}
-          </div>
-
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-      </div>
-    </div>
-
-    <div class="bottom-part">
-      <h3> footnote </h3>
-    </div>
-
- </div>
-
-</body>
-
-</html>
+    {% endfor %}
+{% endblock %}
