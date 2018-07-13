@@ -13,7 +13,7 @@ def post_new(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author == "post_name"
+            post.author == "post_name" #could be buggy
             post.published_date = timezone.now()
             post.save()
             return redirect('post_list', pk=post.pk)
