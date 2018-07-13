@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.shortcuts import render
 from .models import Post
 from .models import timezone
 from .forms import PostForm
@@ -14,10 +13,10 @@ def post_new(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            #post.author = request.user <- not necessary for my website?
+            post.author == "post_name"
             post.published_date = timezone.now()
             post.save()
-            #return redirect('post_detail', pk=post.pk)
+            return redirect('post_list', pk=post.pk)
     else:
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
