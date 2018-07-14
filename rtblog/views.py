@@ -5,7 +5,7 @@ from .forms import PostForm
 
 # Create your views here.
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'rtblog/post_list.html', {'posts': posts})
 
 def post_new(request):
@@ -13,7 +13,7 @@ def post_new(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.title == "post_title" 
+            post.title == "post_title"
             post.published_date = timezone.now()
             post.save()
             return redirect('post_list', pk=post.pk)
