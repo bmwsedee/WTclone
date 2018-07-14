@@ -18,10 +18,9 @@ def post_new(request):
             post.published_date = timezone.now()
             post.save()
             return redirect('post_list', pk=post.pk)
-
     else:
-        form = PostForm()
-    return render(request, 'rtblog/post_edit.html', {'form': form})
+        form = PostForm(instance=post)
+    return render(request, 'blog/post_edit.html', {'form': form})
 
 #def post_detail(request, pk):
     #post = get_object_or_404(Post, pk=pk)
