@@ -19,7 +19,7 @@ def post_new(request):
             post.save()
             return redirect('post_list', pk=post.pk)
     else:
-        form = PostForm(instance=post)
+        form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
 
 #def post_detail(request, pk):
