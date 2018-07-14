@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ('published_date', models.DateTimeField(blank=True, null=True)),
                 #('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
                 #set author to title
-                ('author', models.CharField(max_length=200)),
+                ('author', models.TextField(random)),
 
             ],
         ),
