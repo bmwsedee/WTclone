@@ -1,10 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Comment
 from .models import timezone
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
-from .forms import PostForm, CommentForm
 
 # Create your views here.
 def post_list(request):
