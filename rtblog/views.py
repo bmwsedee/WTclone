@@ -14,6 +14,8 @@ def post_new(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.title == "post_title"
+            #fix?
+            post.author == "random"
             post.published_date = timezone.now()
             post.save()
             return redirect('post_list', pk=post.pk)
