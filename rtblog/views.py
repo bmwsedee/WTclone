@@ -16,8 +16,12 @@ def post_new(request):
             post.title == "post_title"
             post.published_date = timezone.now()
             post.save()
-            #return redirect('post_edit', pk=post.pk) #this line could give the issue
-            #line above redirect to post_detail -> needed for posting?
+            return redirect('post_detail', pk=post.pk)
+
     else:
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_detail.html', {'post': post})
