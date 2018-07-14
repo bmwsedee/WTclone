@@ -16,7 +16,7 @@ def post_new(request):
             post.title == "post_title"
             post.published_date = timezone.now()
             post.save()
-            return redirect('post_edit', pk=post.pk) #this line could give the issue
+            #return redirect('post_edit', pk=post.pk) #this line could give the issue
             #line above redirect to post_detail -> needed for posting?
     else:
         form = PostForm()
