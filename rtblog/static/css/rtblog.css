@@ -2,13 +2,13 @@
 /*bootstrap required!*/
 
 .page-header {
-    background-color: #0d65d8;
+    background-color: ##2a73e0;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: ##f2efef;
+    color: #000000;
     font-size: 36pt;
     text-decoration: none;
 }
@@ -18,7 +18,7 @@
 }
 
 h1, h2, h3, h4 {
-    font-family: sans-serif, cursive;
+    font-family: 'Bree Serif', cursive;
 }
 
 .date {
