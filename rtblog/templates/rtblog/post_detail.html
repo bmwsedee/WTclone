@@ -10,7 +10,7 @@
       {% else %}
         {% if user.is_staff %}
         <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
-        {endif}
+        {% endif %}
       {% endif %}
 
         {% if user.is_authenticated and user.is_staff %}
