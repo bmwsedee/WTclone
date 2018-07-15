@@ -28,11 +28,10 @@
 
         <a href="{% url 'post_list' %}">BACK</a>
     </div>
-    <br>
     <hr>
 
     <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
-    <br>
+    <hr>
     {% for comment in post.comments.all %}
     {% if user.is_authenticated or comment.approved_comment %}
 
