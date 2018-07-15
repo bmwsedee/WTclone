@@ -8,7 +8,9 @@
           {{ post.published_date }}
         </div>
       {% else %}
+        {% if user.is_staff %}
         <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+        {endif}
       {% endif %}
 
         {% if user.is_authenticated and user.is_staff %}
@@ -23,6 +25,9 @@
 
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
+        <br>
+        <h6>Note: only staff members can approve posts after which they will show up!</h6>
+        <br>
         <a href="{% url 'post_list' %}">BACK</a>
     </div>
 
