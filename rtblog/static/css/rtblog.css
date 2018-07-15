@@ -2,7 +2,7 @@
 /*bootstrap required!*/
 
 .page-header {
-    background-color: ##2a73e0;
+    background-color: #2a73e0;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -34,7 +34,7 @@ h1, h2, h3, h4 {
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
-    color: #3359e0;
+    color: #ffffff;
     float: right;
     font-size: 26pt;
     margin-right: 20px;
