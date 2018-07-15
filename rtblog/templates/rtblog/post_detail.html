@@ -25,10 +25,10 @@
 
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
-        
+
         <a href="{% url 'post_list' %}">BACK</a>
     </div>
-
+    <br>
     <hr>
 
     <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
