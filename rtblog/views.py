@@ -5,6 +5,14 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import Post, Comment
+#api stuff below
+from django.http import HttpResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rtblog.models import Post
+from rtblog.serializers import PostSerializer
+from rtblog.forms import PostForm
+
 
 # Create your views here.
 def post_list(request):
@@ -86,3 +94,28 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
+
+#api stuff
+#def home(request): dont need this?
+    #tmpl_vars = {'form': PostForm()}
+    #return render(request, 'talk/index.html', tmpl_vars)
+
+
+@api_view(['GET'])
+def post_collection(request):
+    if request.method == 'GET':
+        posts = Post.objects.all()
+        serializer = PostSerializer(posts, many=True)
+        return Response(serializer.data)
+
+
+@api_view(['GET'])
+def post_element(request, pk):
+    try:
+        post = Post.objects.get(pk=pk)
+    except Post.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = PostSerializer(post)
+        return Response(serializer.data)
