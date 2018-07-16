@@ -96,9 +96,9 @@ def comment_remove(request, pk):
     return redirect('post_detail', pk=comment.post.pk)
 
 #api stuff
-def home(request): dont need this?
-    tmpl_vars = {'form': PostForm()}
-    return render(request, 'rtblog/base.html', tmpl_vars)
+#def home(request): dont need this?
+    #tmpl_vars = {'form': PostForm()}
+    #return render(request, 'talk/index.html', tmpl_vars)
 
 
 @api_view(['GET'])
