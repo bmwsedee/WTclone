@@ -2,7 +2,8 @@ from django.conf.urls import url
 from . import views
 
 #api stuff
-from django.conf.urls import patterns
+
+#end of api stuff
 
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
@@ -16,6 +17,4 @@ urlpatterns = [
     url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
     url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
     # api
-    url(r'^api/v1/posts/$', 'post_collection'),
-    url(r'^api/v1/posts/(?P<pk>[0-9]+)$', 'post_element')
 ]
