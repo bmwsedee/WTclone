@@ -1,9 +1,6 @@
 from django.conf.urls import url
 from . import views
 
-#api stuff
-from django.conf.urls import patterns
-
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
     url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
@@ -15,7 +12,4 @@ urlpatterns = [
     url(r'^post/(?P<pk>\d+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),
     url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
     url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
-    # api
-    url(r'^api/v1/posts/$', 'post_collection'),
-    url(r'^api/v1/posts/(?P<pk>[0-9]+)$', 'post_element')
 ]
